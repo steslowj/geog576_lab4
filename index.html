@@ -23,8 +23,8 @@
           z-index: 10;
           top: 10px;
           right: 10px;
-          background-color: #1d5274;
-          color: #52abd0;
+          background-color: #6bc3e9;
+          color: #273a58;
           padding: 8px 16px;
           border: 2px solid #114265;
           border-radius: 4px;
@@ -34,7 +34,7 @@
         }
 
         .addRecordBtn:hover {
-          background-color: #4d5358;
+          background-color: rgb(56, 77, 95);
         }
        </style>
 
@@ -67,7 +67,8 @@
           
           // Adds the search widget
           view.ui.add(searchWidget, {
-            position: "top-right",
+            position: "top-left",
+            index: 1
           });
 
           const locateBtn = new Locate({
@@ -76,7 +77,8 @@
 
           // Add the locate widget
           view.ui.add(locateBtn, {
-            position: "top-right"
+            position: "top-left",
+            index: 2
           });         
         
           // Create featurelayer from feature service
