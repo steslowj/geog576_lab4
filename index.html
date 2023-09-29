@@ -17,6 +17,25 @@
          height: 100%;
          width: 100%;
         }
+
+        .addRecordBtn {
+          position: absolute;
+          z-index: 10;
+          top: 10px;
+          right: 10px;
+          background-color: #1d5274;
+          color: #52abd0;
+          padding: 8px 16px;
+          border: 2px solid #114265;
+          border-radius: 4px;
+          font-size: 14px;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        .addRecordBtn:hover {
+          background-color: #4d5358;
+        }
        </style>
 
       <!-- importing the css and libraries for esri.js -->
@@ -26,7 +45,7 @@
 
       <!-- loading the modules -->
       <script>
-        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search"], (esriConfig, Map, MapView, Locate, Search) => {
+        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search", "esri/layers/FeatureLayer"], (esriConfig, Map, MapView, Locate, Search, FeatureLayer) => {
 
           // adding in API Key
           esriConfig.apiKey = "AAPK9c2d1c71e0c54fea8c41854d79e2bb2aRY4BboQbjkrg1gzIR4byHHAPQAnvnqnY0kwBUXQfbQGvJjGbV3it18SqxWbjCtON";
@@ -60,8 +79,13 @@
             position: "top-right"
           });         
         
-        
-        
+          // Create featurelayer from feature service
+          const layer = new FeatureLayer({
+            // URL to the service
+            url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_ee474bc5d6cb4428b2342248ae078526_results/FeatureServer"
+          });
+
+          map.add(layer);
         
         
         });
@@ -69,6 +93,7 @@
 
   </head>
   <body>
+    <a href="https://arcg.is/1WfqOC" target="_blank" class="addRecordBtn">Add Record</a>
     <div id="viewDiv"></div>
   </body>
 </html>
