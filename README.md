@@ -12,5 +12,5 @@ This project is a JavaScript-only full stack with a mobile first design that can
 This project is hosted live on github pages: https://steslowj.github.io/geog576_lab4/
 
 ### Website Screenshot
-This screenshot is taken while using Firefox developer tools, emulating a smartphone screen.
+This screenshot is taken while using Firefox developer tools, emulating a smartphone screen set to horizontal.
 ![](geog576_lab4_img.png)
