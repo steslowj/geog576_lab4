@@ -23,10 +23,10 @@
           z-index: 10;
           top: 10px;
           right: 10px;
-          background-color: #6bc3e9;
-          color: #273a58;
+          background-color: #eefaff;
+          color: #2f4467;
           padding: 8px 16px;
-          border: 2px solid #114265;
+          border: 1px solid #114265;
           border-radius: 4px;
           font-size: 14px;
           cursor: pointer;
@@ -34,7 +34,7 @@
         }
 
         .addRecordBtn:hover {
-          background-color: rgb(56, 77, 95);
+          background-color: #6bc3e9;
         }
        </style>
 
@@ -79,12 +79,23 @@
           view.ui.add(locateBtn, {
             position: "top-left",
             index: 2
-          });         
+          });
+
+          // Moves the default zoom widget to the top left corner of the view's container, under search and locate
+          view.ui.move("zoom", "top-left");
+
+          //define a popup for world universities
+          const survey123Popup = {
+            "title": "geog576_lab4 Survey_results",
+            "content": "Creator: {Creator}<br>Date Created: {CreationDate}"
+          };
         
           // Create featurelayer from feature service
           const layer = new FeatureLayer({
             // URL to the service
-            url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_ee474bc5d6cb4428b2342248ae078526_results/FeatureServer"
+            url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_ee474bc5d6cb4428b2342248ae078526_results/FeatureServer",
+            outFields: ["objectid", "CreationDate", "Creator"],
+            popupTemplate: survey123Popup
           });
 
           map.add(layer);
